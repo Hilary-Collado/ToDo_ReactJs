@@ -7,7 +7,7 @@ const Formulario = ({addTodo}) => {
         title: "ToDo #1",
         descripcion: "Desc ToDo #1",
         state: "pendiente",
-        priority: true
+        priority: false
     })
 
     // desestructurando
@@ -72,7 +72,6 @@ const Formulario = ({addTodo}) => {
                     name="priority"
                     id="inputCheck"
                     className="form-check-input"
-                    checked={priority}
                     onChange={handelChange}
                 />
 
