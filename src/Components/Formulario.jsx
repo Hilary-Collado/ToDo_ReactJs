@@ -4,8 +4,8 @@ import Todos from "./Todos";
 
 const Formulario = ({addTodo}) => {
     const [todo, setTodo] = useState({
-        title: "ToDo #1",
-        descripcion: "ToDo #1",
+        title: "Tarea",
+        descripcion: "Descripcion",
         state: true,
         state: "pendiente",
         priority: true,

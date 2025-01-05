@@ -70,8 +70,7 @@ function App() {
 
   return (
     <div className="container mb-2">
-      <h1 className='my-5'>Formularios1</h1>
-      <h1 className='my-5'>hola : {title}</h1>
+      <h1 className='my-5'>TO DO</h1>
       <Formulario addTodo={addTodo} />
       <Todos todos={orderTodo(todos)}
         deleteTodo={deleteTodo}
