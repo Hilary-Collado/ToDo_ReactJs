@@ -8,7 +8,10 @@ const Todos = ({ todos, deleteTodo, updateTodo }) => {
                 {/* para recorrer los todos */}
                 {todos.map((todo) => (
                     // <li key={todo.id}>{todo.title}</li>
-                    <Todo key={todo.div} todo={todo} deleteTodo={deleteTodo} updateTodo={updateTodo}/>
+                    <Todo key={todo.id} 
+                    todo={todo}
+                    deleteTodo={deleteTodo} 
+                    updateTodo={updateTodo}/>
                 ))}
                 {
                     todos.length === 0 && (<li className='list-group-item text-center'>No ha ingresado nada</li>)

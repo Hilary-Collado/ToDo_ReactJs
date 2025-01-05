@@ -13,7 +13,10 @@ const Todo = ({ todo, deleteTodo, updateTodo }) => {
                         <button className="btn btn-sm btn-warning" onClick={() => updateTodo(id)}>Actualizar</button>
                     </div>
                 </div>
-                <span className="badge text-bg-primary">{priority && "Prioritario"}</span>
+                {/* <span className="badge text-bg-primary">{priority && "Prioritario"}</span> */}
+                <span className="badge bg-primary rounden-pill">
+        {priority && "Prioridad"}
+      </span>
             </div>
         </li>)
 }

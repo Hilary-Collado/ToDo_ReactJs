@@ -1,14 +1,15 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Swal from "sweetalert2";
 import Todos from "./Todos";
 
 const Formulario = ({addTodo}) => {
     const [todo, setTodo] = useState({
         title: "ToDo #1",
-        descripcion: "Desc ToDo #1",
+        descripcion: "ToDo #1",
+        state: true,
         state: "pendiente",
-        priority: false
-    })
+        priority: true,
+    });
 
     // desestructurando
     const { title, descripcion, state, priority } = todo
@@ -28,7 +29,7 @@ const Formulario = ({addTodo}) => {
         addTodo({
             id: Date.now(),
             ...todo,
-            state: state === 'completado'
+            state: state === "completado"
         })
 
         Swal.fire({
@@ -40,12 +41,12 @@ const Formulario = ({addTodo}) => {
           });
     }
 
-    const handelChange = e => {
+    const handleChange = (e) => {
         const { name, type, checked, value } = e.target;
 
         setTodo({
             ...todo,
-            [name]: type === 'chekbox' ? checked : value,
+            [name]: type === "checkbox" ? checked : value,
         });
     }
 
@@ -56,38 +57,45 @@ const Formulario = ({addTodo}) => {
                 className="form-control mb-2"
                 name="title"
                 value={title}
-                onChange={handelChange}
+                onChange={handleChange}
 
             />
 
             <textarea className="form-control mb-2"
                 placeholder="Ingrese descripcion"
-                name="descripcion" id=""
+                name="descripcion" 
+                id=""
                 value={descripcion}
-                onChange={handelChange}
+                onChange={handleChange}
             />
 
             <div className="form-check mb-2">
-                <input type="checkbox"
+                <input
+                    type="checkbox"
                     name="priority"
-                    id="inputCheck"
                     className="form-check-input"
-                    onChange={handelChange}
+                    id="inputCheck"
+                    checked={priority}
+                    onChange={handleChange}
                 />
 
                 <label htmlFor="inputCheck">Dar prioridad</label>
             </div>
 
-            <select className="form-select mb-2" name="state" value={state}
-                onChange={handelChange}>
+            <select className="form-select mb-2" 
+            name="state" 
+            value={state}
+                onChange={handleChange}>
                 <option value="pendiente">Pendiente</option>
                 <option value="completado">Completado</option>
             </select>
 
 
-            <button type="submit"  className="btn btn-primary">Agregar todo</button>
+            <button type="submit"  
+            className="btn btn-primary">Agregar todo</button>
         </form>
     )
 }
 
 export default Formulario 
+
